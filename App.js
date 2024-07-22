@@ -9,6 +9,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer'
 import FavoriteScreen from './screens/FavoriteScreen';
 import {Ionicons} from '@expo/vector-icons'
 import FavoritesContextProvider from './store/context/favorites-contex';
+import { Provider } from 'react-redux';
+import { store } from './store/redux/store'
+
 
 
 const Stack = createNativeStackNavigator();
@@ -42,24 +45,25 @@ export default function App() {
   return (
     <>
       <StatusBar style='light'/>
-        <FavoritesContextProvider>
-          <NavigationContainer>
-            <Stack.Navigator initialRouteName='MealsCategories' screenOptions={{
-                headerStyle: { backgroundColor: '#351401'  },
-                headerTintColor: 'white',
-                contentStyle: { backgroundColor: '#5f5149' }
-            }}>
-              <Stack.Screen name="Drawer"component={DrawerNavigator} options={{ 
-                headerShown: false
-              }}/>
-              <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
-              <Stack.Screen name='MealDetail'component={MealsDetail} options={{
-                title: 'About the Meal',
-                headerBackTitle: 'back'
-              }} />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </FavoritesContextProvider>
+          <Provider store={store}>          
+            <NavigationContainer>
+              <Stack.Navigator initialRouteName='MealsCategories' screenOptions={{
+                  headerStyle: { backgroundColor: '#351401'  },
+                  headerTintColor: 'white',
+                  contentStyle: { backgroundColor: '#5f5149' }
+              }}>
+                <Stack.Screen name="Drawer"component={DrawerNavigator} options={{ 
+                  headerShown: false
+                }}/>
+                <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
+                <Stack.Screen name='MealDetail'component={MealsDetail} options={{
+                  title: 'About the Meal',
+                  headerBackTitle: 'back'
+                }} />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </Provider>
+
     </>
   );
 }
