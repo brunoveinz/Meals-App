@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "MealsApp",
+    "name": "My Recipe Book",
     "slug": "MealsApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "backgroundColor": "#24180f" ,
+    "backgroundColor": "#24180f",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -13,16 +13,24 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.informagico.MealsApp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.informagico.MealsApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "76378e2b-4de3-410e-b94c-05e1b61b7b91"
+      }
+    },
+    "owner": "informagico"
   }
 }
